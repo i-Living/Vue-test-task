@@ -36,11 +36,11 @@
           </td>
           <td v-on:click.prevent.self="rowClick" class="col-xs-3">
             <span>{{row.count}}</span>
-            <input v-on:blur="updateValue" v-model="row.count" type="number" min="0">
+            <input v-on:blur="updateValue" v-model="row.count">
           </td>
           <td v-on:click.prevent.self="rowClick" class="col-xs-3">
             <span>{{row.price}}</span>
-            <input v-on:blur="updateValue" v-model="row.price" type="number" min="0">
+            <input v-on:blur="updateValue" v-model="row.price">
           </td>
         </tr>
         <tr>
