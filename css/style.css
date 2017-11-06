@@ -1,0 +1,19 @@
+table tr td:not(:first-child) {
+  cursor: text;
+}
+
+table tr td:first-child {
+  text-align: center;
+}
+
+td input {
+  display: none;
+}
+
+td.hidden-field input {
+  display: inherit;
+}
+
+td.hidden-field span {
+  display: none;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Vue test task</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://unpkg.com/vue"></script>
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container table-responsive" id="app">
+    <h2>Vue test task</h2>
+    <p>Нажмите внутри ячейки для редактирования</p>
+    <table class="table table-bordered table-striped table-sm">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Наименование</th>
+          <th>Количество</th>
+          <th>Цена</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="row in rows">
+          <td class="col-xs-1">
+            <button type="button" class="btn btn-default" v-on:click="removeRow(row)">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+          </td>
+          <td v-on:click.prevent.self="rowClick" class="col-xs-5">
+            <span>{{row.name}}</span>
+            <input v-on:blur="updateValue" v-model="row.name">
+          </td>
+          <td v-on:click.prevent.self="rowClick" class="col-xs-3">
+            <span>{{row.count}}</span>
+            <input v-on:blur="updateValue" v-model="row.count" type="number" min="0">
+          </td>
+          <td v-on:click.prevent.self="rowClick" class="col-xs-3">
+            <span>{{row.price}}</span>
+            <input v-on:blur="updateValue" v-model="row.price" type="number" min="0">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button type="button" class="btn btn-default" v-on:click="addRow">
+              <span class="glyphicon glyphicon-plus"></span>
+            </button>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Итого:</td>
+          <td></td>
+          <td></td>
+          <td>{{total}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <script src="scripts/table.js"></script>
+</body>
+
+</html>
