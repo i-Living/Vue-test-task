@@ -6,7 +6,7 @@ new Vue({
       count: '1',
       price: '10.0'
     }, {
-      name: 'Пироженое',
+      name: 'Пирожное',
       count: '2',
       price: '20.0'
     }, {
@@ -16,10 +16,16 @@ new Vue({
     }],
   },
   methods: {
-    rowClick: function(event) {
-      event.target.classList.add("hidden-field");
+    tableClick: function(event) {
       var input = event.target.querySelector("input");
-      input.focus();
+
+      // Check if row whith input clicked
+      if (input === null) {
+        return;
+      } else {
+        event.target.classList.add("hidden-field");
+        input.focus();
+      }
     },
     updateValue: function(event) {
       event.target.parentNode.classList.remove("hidden-field");

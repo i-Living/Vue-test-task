@@ -15,7 +15,7 @@
   <div class="container table-responsive" id="app">
     <h2>Vue test task</h2>
     <p>Нажмите внутри ячейки для редактирования</p>
-    <table class="table table-bordered table-striped table-sm">
+    <table class="table table-bordered table-striped table-sm" v-on:click="tableClick">
       <thead>
         <tr>
           <th></th>
@@ -31,15 +31,15 @@
               <span class="glyphicon glyphicon-trash"></span>
             </button>
           </td>
-          <td v-on:click.prevent.self="rowClick" class="col-xs-5">
+          <td class="col-xs-5">
             <span>{{row.name}}</span>
             <input v-on:blur="updateValue" v-model="row.name">
           </td>
-          <td v-on:click.prevent.self="rowClick" class="col-xs-3">
+          <td class="col-xs-3">
             <span>{{row.count}}</span>
             <input v-on:blur="updateValue" v-model="row.count">
           </td>
-          <td v-on:click.prevent.self="rowClick" class="col-xs-3">
+          <td class="col-xs-3">
             <span>{{row.price}}</span>
             <input v-on:blur="updateValue" v-model="row.price">
           </td>
