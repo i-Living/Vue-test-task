@@ -46,7 +46,11 @@ new Vue({
     total: function() {
       var result = 0;
       this.rows.forEach(item => result += item.count * item.price);
-      return result;
+      if (!isNaN(result)) {
+        return result;
+      } else {
+        return "Введено некорректное значение";
+      }
     }
   }
 })
